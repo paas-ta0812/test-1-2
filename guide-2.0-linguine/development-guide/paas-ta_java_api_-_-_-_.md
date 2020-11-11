@@ -1,4 +1,4 @@
-# PaaS-TA\_Java\_API\_서비스\_미터링\_개발\_가이드
+# Java API 서비스 미터링 개발 가이드
 
 ### Table of Contents
 
@@ -66,11 +66,11 @@ API 서비스 애플리케이션을 Java 언어로 작성 한다. API 서비스�
 
 | 기능 | 설명 |  |
 | :--- | :--- | :--- |
-| Runtime | 미터링/등급/과금 정책 | API 서비스 제공자가 제공하는 서비스에 대한 각종 정책 정의 정보. JSON 형식으로 되었으며, 해당 정책을 CF-ABACUS에 등록하면 정책에 정의한 내용에 따라 API 사용량을 집계 한다.  정책은 서비스 제공자가 정의해야 하며, JSON 스키마는 다음을 참조한다.  https://github.com/cloudfoundry-incubator/cf-abacus/blob/master/doc/api.md |
-| 서비스 브로커 API | Cloud Controller와 Service Broker 사이의 규약으로써 서비스 브로커 API 개발에 대해서는 다음을 참조한다.  https://github.com/OpenPaaSRnD/Documents/blob/master/Development-Guide/ServicePack\_develope\_guide.md\#11 |  |
+| Runtime | 미터링/등급/과금 정책 | API 서비스 제공자가 제공하는 서비스에 대한 각종 정책 정의 정보. JSON 형식으로 되었으며, 해당 정책을 CF-ABACUS에 등록하면 정책에 정의한 내용에 따라 API 사용량을 집계 한다.  정책은 서비스 제공자가 정의해야 하며, JSON 스키마는 다음을 참조한다.  [https://github.com/cloudfoundry-incubator/cf-abacus/blob/master/doc/api.md](https://github.com/cloudfoundry-incubator/cf-abacus/blob/master/doc/api.md) |
+| 서비스 브로커 API | Cloud Controller와 Service Broker 사이의 규약으로써 서비스 브로커 API 개발에 대해서는 다음을 참조한다.  [https://github.com/OpenPaaSRnD/Documents/blob/master/Development-Guide/ServicePack\_develope\_guide.md\#11](https://github.com/OpenPaaSRnD/Documents/blob/master/Development-Guide/ServicePack_develope_guide.md#11) |  |
 | 서비스 API | 서비스 제공자가 제공하는 API 서비스 기능 및 API 사용량을 CF-ABACUS에 전송하는 기능으로 구성되었다. |  |
 | 대시보드 | 서비스를 제공하기 위한 인증, 서비스 모니터링 등을 위한 대시보드 기능으로 서비스 제공자가 개발해야 한다. |  |
-| CF-ABACUS | CF-ABACUS 핵심 기능으로써 수집한 사용량 정보를 집계한다.  CF-ABACUS은 CF 설치 후, CF에 마이크로 서비스 형태로 설치한다. 자세한 사항은 다음을 참조한다.  https://github.com/cloudfoundry-incubator/cf-abacus |  |
+| CF-ABACUS | CF-ABACUS 핵심 기능으로써 수집한 사용량 정보를 집계한다.  CF-ABACUS은 CF 설치 후, CF에 마이크로 서비스 형태로 설치한다. 자세한 사항은 다음을 참조한다.  [https://github.com/cloudfoundry-incubator/cf-abacus](https://github.com/cloudfoundry-incubator/cf-abacus) |  |
 
 ※ 본 개발 가이드는 _**API 서비스**_ 개발에 대해서만 기술하며, 다른 컴포넌트의 개발 또는 설치에 대해서 링크한 사이트를 참조한다.
 
@@ -171,7 +171,7 @@ Java 파일 형상 설명
 
   \`\`\`yml applications:
 
-* name: sample-api-node-service  \# 애플리케이션 이름
+* name: sample-api-node-service \# 애플리케이션 이름
 
   memory: 512M \# 애플리케이션 메모리 사이즈
 
@@ -183,7 +183,7 @@ Java 파일 형상 설명
 
   env:
 
-    SPRING\_PROFILES\_ACTIVE : cloud
+  SPRING\_PROFILES\_ACTIVE : cloud
 
   \`\`\`
 
@@ -456,7 +456,7 @@ private JSONObject buildServiceUsage (String orgId, String spaceId, String appId
 
     jsonObjectUsage.put ("measured_usage", measuredUsageArr);
     return jsonObjectUsage;
-}    
+}
 ```
 
 * API 서비스 미터링 전송 항목 \(전송 리포트 JSON 상세\)
@@ -528,13 +528,13 @@ public ResponseEntity<String> serviceAPIPlan01(@RequestBody String input) throws
 
 #### 2.4.1 API 서비스 연동 샘플 애플리케이션 인터페이스 항목
 
-**1.  API 서비스 엔드 포인트**
+**1. API 서비스 엔드 포인트**
 
 ```text
 GET|POST|PUT|DELETE <api_service_restful_api>
 ```
 
-**2.  API 서비스 미터링 전송 항목**
+**2. API 서비스 미터링 전송 항목**
 
 | 항목명 | 유형 | 설명 | 예시 |
 | :--- | :--- | :--- | :--- |
@@ -546,7 +546,7 @@ GET|POST|PUT|DELETE <api_service_restful_api>
 | credentials | JSON | 서비스 요청에 필요한 credential 항목을 설정한다. | credentials: { key: value, … } |
 | inputs | JSON | 서비스 요청에 필요한 입력 정보를 설정한다. | inputs: { key:value, ... } |
 
-**3.  API 서비스 미터링 전송 항목 예제**
+**3. API 서비스 미터링 전송 항목 예제**
 
 ```text
 {
@@ -574,7 +574,7 @@ GET|POST|PUT|DELETE <api_service_restful_api>
 
 미터링 정책이란 수집한 미터링 정보에서 미터링 대상의 지정 및 집계 방식을 정의한 JSON 형식의 오브젝트이다. 서비스 제공자는 미터링 정책 스키마에 맞춰 서비스에 대한 정책을 개발한다.
 
-**1.  미터링 정책 스키마**
+**1. 미터링 정책 스키마**
 
 | 항목명 | 유형 | 필수 | 예시 |
 | :--- | :--- | :--- | :--- |
@@ -591,7 +591,7 @@ GET|POST|PUT|DELETE <api_service_restful_api>
 | summarize | String | X | 미터링 정보를 보고할 때 적용하는 계산식 또는 변환식 |
 | title | String | X | API 미터링 제목 |
 
-**2.  미터링 정책 예제**
+**2. 미터링 정책 예제**
 
 ```text
 {
@@ -629,7 +629,7 @@ GET|POST|PUT|DELETE <api_service_restful_api>
 
 등급 정책이란 각 서비스의 사용 가중치를 정의한 JSON 형식의 오브젝트이다. 서비스 제공자는 등급 정책 스키마에 맞춰 서비스에 대한 정책을 개발한다.
 
-**1.  등급 정책 스키마**
+**1. 등급 정책 스키마**
 
 | 항목명 | 유형 | 필수 | 설명 |
 | :--- | :--- | :--- | :--- |
@@ -640,7 +640,7 @@ GET|POST|PUT|DELETE <api_service_restful_api>
 | charge | String | X | 사용량에 대한 과금 계산식 또는 변환식 |
 | title | String | X | 등급 정책 명 |
 
-**2.  등급 정책 예제**
+**2. 등급 정책 예제**
 
 ```text
 {
@@ -662,7 +662,7 @@ GET|POST|PUT|DELETE <api_service_restful_api>
 
 과금 정책이란 각 서비스에 대한 사용 단가를 정의한 JSON 형식의 오브젝트이다. 서비스 제공자는 과금 정책 스키마에 맞춰 서비스에 대한 정책을 개발한다.
 
-**1.  과금 정책 스키마**
+**1. 과금 정책 스키마**
 
 | 항목명 | 유형 | 필수 | 설명 |
 | :--- | :--- | :--- | :--- |
@@ -674,7 +674,7 @@ GET|POST|PUT|DELETE <api_service_restful_api>
 | price | Number | O | 서비스 사용 단가 |
 | title | String | X | 과금 정책 제목 |
 
-**2.  과금 정책 예제**
+**2. 과금 정책 예제**
 
 ```text
 {
@@ -722,7 +722,7 @@ GET|POST|PUT|DELETE <api_service_restful_api>
 
 정책은 2가지 방식 중 하나의 방법으로 CF-ABACUS에 등록할 수 있다.
 
-**1.  js 파일을 등록하는 방식**
+**1. js 파일을 등록하는 방식**
 
 작성한 정책을 다음의 디렉토리에 저장한 후, CF에 CF-ABACUS를 배포 또는 재 배포 한다.
 
@@ -744,7 +744,7 @@ GET|POST|PUT|DELETE <api_service_restful_api>
   cf-abacus/lib/plugins/provisioning/src/plans/rating
   ```
 
-**2.  DB에 등록하는 방식**
+**2. DB에 등록하는 방식**
 
 작성한 정책을 curl 등을 이용해 DB에 저장하는 방식으로 CF-ABACUS를 재배포할 필요는 없다. 정책 등록 시, 정책 ID는 고유해야 한다.
 

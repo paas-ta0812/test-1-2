@@ -1,4 +1,4 @@
-# PaaS-TA\_Java\_서비스\_미터링\_개발\_가이드
+# Java 서비스 미터링 개발 가이드
 
 ### Table of Contents
 
@@ -124,15 +124,15 @@ Service Broker API Architecture
 #### 2.3.1.  서비스 브로커 라이브러리는 무엇인가?
 
 CF \(개방형 플랫폼\) 에서는 플랫폼 상에서 서비스 할 수 있는 다양한 서비스들이 존재한다.  
- 이 서비스들은 각각 그 서비스 고유의 서비스 브로커를 개발 함으로써, CF \(개방형 플랫폼\) 에서 애플리케이션이 서비스를 사용 할 수 있도록 하고 있다.  
- 서비스는 다양하지만, 서비스를 사용하기 위한 개방형 플랫폼의 RESTAPI가 미리 정해져 있다.  
- 서비스 브로커 라이브러리는 각각 다른 서비스 브로커들이 서비스 브로커 라이브러리 Jar 파일을 build path 에 추가 하고, 추상화 클래스들을 구현 하는 것으로 이 개방형 플랫폼의 REST API에 기반 하여, 서비스가 제공 될 수 있도록 해주는 라이브러리 이다.
+이 서비스들은 각각 그 서비스 고유의 서비스 브로커를 개발 함으로써, CF \(개방형 플랫폼\) 에서 애플리케이션이 서비스를 사용 할 수 있도록 하고 있다.  
+서비스는 다양하지만, 서비스를 사용하기 위한 개방형 플랫폼의 RESTAPI가 미리 정해져 있다.  
+서비스 브로커 라이브러리는 각각 다른 서비스 브로커들이 서비스 브로커 라이브러리 Jar 파일을 build path 에 추가 하고, 추상화 클래스들을 구현 하는 것으로 이 개방형 플랫폼의 REST API에 기반 하여, 서비스가 제공 될 수 있도록 해주는 라이브러리 이다.
 
 본 가이드에서는 mongo-db 서비스 브로커에 미터링 서비스를 구현하기 위해서는 이 서비스 브로커 라이브러리에 미터링을 하기 위한 추상화 클래스를 추가 한 후, mongo-db 서비스 브로커에서 이 라이브러리를 dependency로 사용하여 빌드 한다.
 
 #### 2.3.2.  서비스 브로커 라이브러리를 다운로드 한 후, 프로젝트 import 한다.
 
-**1.  오픈 소스로 제공되고 있는 서비스 브로커 소스를 git clone 으로 다운받는다.**
+**1. 오픈 소스로 제공되고 있는 서비스 브로커 소스를 git clone 으로 다운받는다.**
 
 [**https://github.com/cloudfoundry-community/spring-boot-cf-service-broker/tree/master/src/main/java/org/cloudfoundry/community/servicebroker/controller**](https://github.com/cloudfoundry-community/spring-boot-cf-service-broker/tree/master/src/main/java/org/cloudfoundry/community/servicebroker/controller)
 
@@ -254,7 +254,7 @@ public ServiceInstanceBinding (String id,
 #### 2.3.6.  SampleMeteringOAuthService 추상화 클래스
 
 UAA OAuthToken은 Abacus가 Secured로 운영될 경우, abucus-collector RESTAPI에 접근 하기 위해 필요하다.  
- SampleMeteringOAuthService를 상속하는 클래스는 UAA OAuthToken을 취득하여 리턴하는 처리를 구현해야 한다.
+SampleMeteringOAuthService를 상속하는 클래스는 UAA OAuthToken을 취득하여 리턴하는 처리를 구현해야 한다.
 
 ```text
 package org.openpaas.servicebroker.service;
@@ -372,7 +372,7 @@ uaa.server: https://uaa.<파스-타 도메인>
 # abacus usage collector RESTAPI 사용권한 (UAA server 에 미리 등록한다.)
 uaa.client.id: abacus-linux-container
 uaa.client.secret: secret
-uaa.client.scope: abacus.usage.linux-container.write,abacus.usage.linux-container.read 
+uaa.client.scope: abacus.usage.linux-container.write,abacus.usage.linux-container.read
 ```
 
 uaa 계정 설정 방법에 관해서 별도의 **abacus\*\***설치 가이드**의** Secured Abacus**를 위한**UAA**\*\*계정 등록**을 참고한다.
@@ -472,7 +472,7 @@ if(!SECURED.equals(abacusSecured)){
     in.close();
     conn.disconnect();
     return authToken;
-} 
+}
 ```
 
 #### 2.4.9.  SampleMeteringReportService 구현
@@ -483,9 +483,9 @@ abacus-collector 에서는 미터링 정책에 따라 POST 받을 양식에 대�
 
 SampleMeteringReportServiceImpl 은 크게 나누어 2가지 처리를 하고 있다.
 
-**1.  ServiceInstanceBinding 정보를 참조 하여 ,사용량 정보 JSON을 생성 한다.**
+**1. ServiceInstanceBinding 정보를 참조 하여 ,사용량 정보 JSON을 생성 한다.**
 
-**2.  생성한 사용량 정보 JSON을 abacus-collector로 전송한다. \(HTTPS, HTTP\)**
+**2. 생성한 사용량 정보 JSON을 abacus-collector로 전송한다. \(HTTPS, HTTP\)**
 
 사용량 정보 JSON 을 생성 한다.
 
@@ -636,7 +636,7 @@ public JSONObject buildServiceUsage(ServiceInstanceBinding binding, int mode) {
 
 미터링 정책 스키마 미터링 정책이란 수집한 미터링 정보에서 미터링 대상의 지정 및 집계 방식을 정의한 JSON 형식의 오브젝트이다. 서비스 제공자는 미터링 정책 스키마에 맞춰 서비스에 대한 정책을 개발한다.
 
-**1.  미터링 정책 스키마**
+**1. 미터링 정책 스키마**
 
 | 항목명 | 유형 | 필수 | 설명 |
 | :--- | :--- | :--- | :--- |
@@ -653,7 +653,7 @@ public JSONObject buildServiceUsage(ServiceInstanceBinding binding, int mode) {
 | summarize | String | X | 미터링 정보를 보고할 때 적용하는 계산식 또는 변환식 |
 | title | String | X | API 서비스 미터링 제목 |
 
-**2.  미터링 정책 예제**
+**2. 미터링 정책 예제**
 
 ```text
 {
@@ -745,7 +745,7 @@ public JSONObject buildServiceUsage(ServiceInstanceBinding binding, int mode) {
 
 등급 정책이란 각 서비스의 사용 가중치를 정의한 JSON 형식의 오브젝트이다. 서비스 제공자는 등급 정책 스키마에 맞춰 서비스에 대한 정책을 개발한다.
 
-**1.  등급 정책 스키마**
+**1. 등급 정책 스키마**
 
 | 항목명 | 유형 | 필수 | 설명 |
 | :--- | :--- | :--- | :--- |
@@ -756,7 +756,7 @@ public JSONObject buildServiceUsage(ServiceInstanceBinding binding, int mode) {
 | charge | String | X | 사용량에 대한 과금 계산식 또는 변환식 |
 | title | String | X | 등급 정책 명 |
 
-**2.  등급 정책 예제**
+**2. 등급 정책 예제**
 
 ```text
 {
@@ -778,7 +778,7 @@ public JSONObject buildServiceUsage(ServiceInstanceBinding binding, int mode) {
 
 과금 정책이란 각 서비스에 대한 사용 단가를 정의한 JSON 형식의 오브젝트이다. 서비스 제공자는 과금 정책 스키마에 맞춰 서비스에 대한 정책을 개발한다.
 
-**1.  과금 정책 스키마**
+**1. 과금 정책 스키마**
 
 | 항목명 | 유형 | 필수 | 설명 |
 | :--- | :--- | :--- | :--- |
@@ -790,7 +790,7 @@ public JSONObject buildServiceUsage(ServiceInstanceBinding binding, int mode) {
 | price | String | O | 서비스 사용 단가 |
 | title | String | X | 과금 정책 제목 |
 
-**2.  과금 정책 예제**
+**2. 과금 정책 예제**
 
 ```text
 {
@@ -838,7 +838,7 @@ public JSONObject buildServiceUsage(ServiceInstanceBinding binding, int mode) {
 
 정책은 2가지 방식 중 하나의 방법으로 CF-ABACUS에 등록할 수 있다.
 
-**1.  js 파일을 등록하는 방식**
+**1. js 파일을 등록하는 방식**
 
 작성한 정책을 다음의 디렉토리에 저장한 후, CF에 CF-ABACUS를 배포 또는 재배포 한다.
 
@@ -854,7 +854,7 @@ public JSONObject buildServiceUsage(ServiceInstanceBinding binding, int mode) {
 
   cf-abacus/lib/plugins/provisioning/src/plans/rating
 
-**2.  DB에 등록하는 방식**
+**2. DB에 등록하는 방식**
 
 작성한 정책을 curl 등을 이용해 DB에 저장하는 방식으로 CF-ABACUS를 재배포할 필요는 없다. 정책 등록 시, 정책 ID는 고유해야 한다.
 

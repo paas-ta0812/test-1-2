@@ -1,4 +1,4 @@
-# PaaS-TA Portal 배포 가이드
+# 포탈 배포 가이드
 
 ### Table of Contents
 
@@ -149,7 +149,7 @@ Creating service instance portal-redis-session in org OCP/ space prd as admin...
 - 사용자 서비스 eureka user provide service 등록
 ```
 
-$ cf cups portal-eureka-service -p '{"uri":"[http://portal-registration.115.68.46.186.xip.io"}](http://portal-registration.115.68.46.186.xip.io"})'
+$ cf cups portal-eureka-service -p '{"uri":"\[[http://portal-registration.115.68.46.186.xip.io"}\]\(http://portal-registration.115.68.46.186.xip.io"}](http://portal-registration.115.68.46.186.xip.io"}]%28http://portal-registration.115.68.46.186.xip.io"})\)'
 
 ```text
 ##### Windows 환경에서 명령어 입력시
@@ -257,7 +257,7 @@ Unauthorized use is strictly prohibited. All access and activity
 
 is subject to logging and monitoring. vcap@10.244.0.130's password: Welcome to Ubuntu 14.04.5 LTS \(GNU/Linux 4.4.0-59-generic x86\_64\)
 
-* Documentation:  [https://help.ubuntu.com/](https://help.ubuntu.com/)
+* Documentation: [https://help.ubuntu.com/](https://help.ubuntu.com/)
 
   Last login: Wed Jan 18 06:33:28 UTC 2017 from 10.30.20.23 on ssh
 
@@ -1184,7 +1184,7 @@ user: admin: username: admin password: admin uaaClient: clientId: login clientSe
 
 abacus: url: [http://paasta-usage-reporting.115.68.46.186.xip.io/v1](http://paasta-usage-reporting.115.68.46.186.xip.io/v1)
 
-spring: profiles: local security: username: admin password: openpaasta datasource: cc: driverClassName: org.postgresql.Driver url: jdbc:postgresql://localhost:5524/ccdb \# PaaS-TA 플랫폼의 ccdb 접속 url\(수정 필요\) username: ccadmin password: admin portal: driverClassName: org.postgresql.Driver url: jdbc:postgresql://localhost:5524/portaldb \#\(Portal DB로 PaaS-TA 플랫폼에 내장된 PostgreSQL을 사용할 경우\) PaaS-TA 플랫폼의 portaldb 접속 url\(수정 필요\) username: portaladmin password: admin mysql: driverClassName: com.mysql.jdbc.Driver url: jdbc:mysql://localhost:3306/portaldb?autoReconnect=true&useUnicode=true&characterEncoding=utf8 \# \(Portal DB로 Mysql 서비스팩을 사용할 경우\) MySQL 서비스팩의 portaldb 접속 url \(수정 필요\) username: portaladmin password: admin uaa: driverClassName: org.postgresql.Driver url: jdbc:postgresql://localhost:5524/uaadb \# PaaS-TA 플랫폼의 uaadb 접속 url \(수정 필요\) username: uaaadmin password: admin objectStorage: tenantName: paasta-portal username: paasta-portal password: paasta authUrl: [http://localhost:5000/v2.0](http://localhost:5000/v2.0) \# PaaS-TA Portal Object Storage AuthUrl \(수정 필요\) container: portal-container mail: smtp: host: smtp.gmail.com port: 465 username: PaaS-TA 관리자 password: openpasta! userEmail: openpasta@gmail.com properties: auth: true starttls: enable: true required: true maximumTotalQps: 90 authUrl: [http://localhost:8080](http://localhost:8080) imgUrl: [http://52.201.48.51:8080/v1/KEY\_84586dfdc15e4f8b9c2a8e8090ed9810/portal-container/65bdc7f43e11433b8f17683f96c7e626.png](http://52.201.48.51:8080/v1/KEY_84586dfdc15e4f8b9c2a8e8090ed9810/portal-container/65bdc7f43e11433b8f17683f96c7e626.png) sFile: emailTemplate.html subject: PaaS-TA User Potal 인증메일\(Local\) contextUrl: user/authUser multipart: maxFileSize: 1000Mb maxRequestSize: 1000Mb eureka: instance: hostname: localhost client: serviceUrl: defaultZone: [http://127.0.0.1:2221/eureka/](http://127.0.0.1:2221/eureka/) \# defaultZone: [http://\[portal-registration의](http://[portal-registration의) 접속 호스트\]/eureka/ \(수정 필요\) logging: level:
+spring: profiles: local security: username: admin password: openpaasta datasource: cc: driverClassName: org.postgresql.Driver url: jdbc:postgresql://localhost:5524/ccdb \# PaaS-TA 플랫폼의 ccdb 접속 url\(수정 필요\) username: ccadmin password: admin portal: driverClassName: org.postgresql.Driver url: jdbc:postgresql://localhost:5524/portaldb \#\(Portal DB로 PaaS-TA 플랫폼에 내장된 PostgreSQL을 사용할 경우\) PaaS-TA 플랫폼의 portaldb 접속 url\(수정 필요\) username: portaladmin password: admin mysql: driverClassName: com.mysql.jdbc.Driver url: jdbc:mysql://localhost:3306/portaldb?autoReconnect=true&useUnicode=true&characterEncoding=utf8 \# \(Portal DB로 Mysql 서비스팩을 사용할 경우\) MySQL 서비스팩의 portaldb 접속 url \(수정 필요\) username: portaladmin password: admin uaa: driverClassName: org.postgresql.Driver url: jdbc:postgresql://localhost:5524/uaadb \# PaaS-TA 플랫폼의 uaadb 접속 url \(수정 필요\) username: uaaadmin password: admin objectStorage: tenantName: paasta-portal username: paasta-portal password: paasta authUrl: [http://localhost:5000/v2.0](http://localhost:5000/v2.0) \# PaaS-TA Portal Object Storage AuthUrl \(수정 필요\) container: portal-container mail: smtp: host: smtp.gmail.com port: 465 username: PaaS-TA 관리자 password: openpasta! userEmail: openpasta@gmail.com properties: auth: true starttls: enable: true required: true maximumTotalQps: 90 authUrl: [http://localhost:8080](http://localhost:8080) imgUrl: [http://52.201.48.51:8080/v1/KEY\_84586dfdc15e4f8b9c2a8e8090ed9810/portal-container/65bdc7f43e11433b8f17683f96c7e626.png](http://52.201.48.51:8080/v1/KEY_84586dfdc15e4f8b9c2a8e8090ed9810/portal-container/65bdc7f43e11433b8f17683f96c7e626.png) sFile: emailTemplate.html subject: PaaS-TA User Potal 인증메일\(Local\) contextUrl: user/authUser multipart: maxFileSize: 1000Mb maxRequestSize: 1000Mb eureka: instance: hostname: localhost client: serviceUrl: defaultZone: [http://127.0.0.1:2221/eureka/](http://127.0.0.1:2221/eureka/) \# defaultZone: \[[http://\[portal-registration의\]\(http://\[portal-registration의](http://[portal-registration의]%28http://[portal-registration의)\) 접속 호스트\]/eureka/ \(수정 필요\) logging: level:
 
 ```text
 org.openpaas.paasta.portal.api.mapper: DEBUG

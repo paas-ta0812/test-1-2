@@ -1,4 +1,4 @@
-# PaaS-TA\_Usage\_Reporting\_API\_가이드
+# Usage Reporting API 가이드
 
 ### Table of Contents
 

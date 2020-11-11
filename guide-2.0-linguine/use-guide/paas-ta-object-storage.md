@@ -1,4 +1,4 @@
-# PaaS-TA 포탈 Object Storage 설치 가이드
+# 포탈 Object Storage 설치 가이드
 
 ### Table of Contents
 
@@ -210,9 +210,9 @@ name: paasta-portal-object-storage \# 서비스 배포 이름 \(필수\) directo
 
 releases:
 
-* name: paasta-portal-object-storage                  \# 서비스 릴리즈 이름\(필수\)
+* name: paasta-portal-object-storage \# 서비스 릴리즈 이름\(필수\)
 
-  version: latest                                     \# 서비스 릴리즈 버전\(필수\): latest 시 업로드된 서비스 릴리즈 최신버전
+  version: latest \# 서비스 릴리즈 버전\(필수\): latest 시 업로드된 서비스 릴리즈 최신버전
 
 update: canaries: 0 \# canary 인스턴스 수\(필수\) canary\_watch\_time: 30000-240000 \# canary 인스턴스가 수행하기 위한 대기 시간\(필수\) max\_in\_flight: 1 \# non-canary 인스턴스가 병렬로 update 하는 최대 개수\(필수\)  
 serial: true update\_watch\_time: 30000-240000 \# non-canary 인스턴스가 수행하기 위한 대기 시간\(필수\)
@@ -222,55 +222,55 @@ disk: 20480 ram: 4096 network: default reuse\_compilation\_vms: false workers: 4
 
 resource\_pools: \# 배포시 사용하는 resource pools를 명시하며 여러 개의 resource pools 을 사용할 경우 name 은 unique 해야함\(필수\)
 
-* cloud\_properties:                                   \# 컴파일 VM을 만드는 데 필요한 IaaS의 특정 속성을 설명 \(instance\_type, availability\_zone\), 직접 cpu, disk, 메모리 설정가능
+* cloud\_properties: \# 컴파일 VM을 만드는 데 필요한 IaaS의 특정 속성을 설명 \(instance\_type, availability\_zone\), 직접 cpu, disk, 메모리 설정가능
 
-    cpu: 1
+  cpu: 1
 
-    disk: 4096
+  disk: 4096
 
-    ram: 2048
+  ram: 2048
 
-  name: swift-keystone                                \# 고유한 resource pool 이름
+  name: swift-keystone \# 고유한 resource pool 이름
 
   network: default
 
   stemcell:
 
-    name: bosh-vsphere-esxi-ubuntu-trusty-go\_agent    \# 사용할 stemcell 이름\(필수\)
+  name: bosh-vsphere-esxi-ubuntu-trusty-go\_agent \# 사용할 stemcell 이름\(필수\)
 
-    version: 3263.8                                   \# stemcell 버전\(필수\)
+  version: 3263.8 \# stemcell 버전\(필수\)
 
 jobs:
 
-* instances: 1                                  \# job 인스턴스 수\(필수\)
+* instances: 1 \# job 인스턴스 수\(필수\)
 
-  name: swift-keystone                          \# 작업 이름\(필수\)
+  name: swift-keystone \# 작업 이름\(필수\)
 
-  networks:                                     \# 네트워크 구성정보
+  networks: \# 네트워크 구성정보
 
-  * name: default                               \# Networks block에서 선언한 network 이름\(필수\)
+  * name: default \# Networks block에서 선언한 network 이름\(필수\)
 
     static\_ips:
 
-    * 10.30.131.12                              \# 사용할 IP addresses 정의\(필수\)
+    * 10.30.131.12 \# 사용할 IP addresses 정의\(필수\)
 
-      persistent\_disk: 2048                         \# object storage 저장 공간 크기\(필수\)
+      persistent\_disk: 2048 \# object storage 저장 공간 크기\(필수\)
 
-      resource\_pool: swift-keystone                 \# resource\_pools block에 정의한 resource pool 이름\(필수\)
+      resource\_pool: swift-keystone \# resource\_pools block에 정의한 resource pool 이름\(필수\)
 
       templates:
 
-  * name: swift-keystone                        \# job template 이름\(필수\)
+  * name: swift-keystone \# job template 이름\(필수\)
 
 networks: \# 네트워크 블록에 나열된 각 서브 블록이 참조 할 수있는 작업이 네트워크 구성을 지정, 네트워크 구성은 네트워크 담당자에게 문의 하여 작성 요망
 
-* name: default                                 \# vsphere 에서 사용하는 network 이름\(필수\)
+* name: default \# vsphere 에서 사용하는 network 이름\(필수\)
 
   subnets:
 
   * cloud\_properties:
 
-      name: Internal
+    name: Internal
 
     dns:
 
@@ -283,13 +283,13 @@ networks: \# 네트워크 블록에 나열된 각 서브 블록이 참조 할 �
 
       range: 10.30.0.0/16
 
-      reserved:                                   \# 설치시 제외할 IP 설정
+      reserved: \# 설치시 제외할 IP 설정
 
     * 10.30.0.1 - 10.30.0.5
 
       static:
 
-    * 10.30.131.12                              \# 사용 가능한 IP 설정
+    * 10.30.131.12 \# 사용 가능한 IP 설정
 
       type: manual
 

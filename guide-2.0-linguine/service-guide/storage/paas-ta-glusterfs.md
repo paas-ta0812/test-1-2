@@ -1,4 +1,4 @@
-# PaaS-TA GlusterFS 서비스팩 설치 가이드
+# GlusterFS 설치 가이드
 
 ## 1. 문서 개요
 
@@ -21,8 +21,8 @@
 
 #### 1.4. 참고자료
 
-[**http://bosh.io/docs**](http://bosh.io/docs)   
- [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
+[**http://bosh.io/docs**](http://bosh.io/docs)  
+[**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 
 ## 2. GlusterFS 서비스팩 설치
 
@@ -564,7 +564,7 @@ applications:
 path: target/hello-spring-glusterfs.war # 배포하는 App 파일 PATH
 ```
 
-* --no-start 옵션으로 App을 배포한다. 
+* --no-start 옵션으로 App을 배포한다.
 
   --no-start: App 배포시 구동은 하지 않는다.
 

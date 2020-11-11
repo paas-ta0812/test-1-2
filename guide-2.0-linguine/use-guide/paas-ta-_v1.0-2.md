@@ -1,4 +1,4 @@
-# PaaS-TA 운영자 포탈 가이드\_v1.0
+# 운영자 포탈 가이드
 
 ## Table of Contents
 

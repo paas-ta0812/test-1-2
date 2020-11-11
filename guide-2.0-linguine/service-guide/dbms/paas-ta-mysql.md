@@ -1,4 +1,4 @@
-# Table of Contents
+# MySQL 설치 가이드
 
 1. [문서 개요](paas-ta-mysql.md#1-문서-개요)
    * 1.1. [목적](paas-ta-mysql.md#11-목적)
@@ -49,8 +49,7 @@
 ### 2.1. 설치전 준비사항
 
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다. 서비스팩 설치를 위해서는 먼저 BOSH CLI 가 설치 되어 있어야 하고 BOSH 에 로그인 및 target 설정이 되어 있어야 한다.  
- BOSH CLI 가 설치 되어 있지 않을 경우 먼저 BOSH 설치 가이드 문서를 참고 하여 BOSH CLI를 설치 해야 한다.  
-
+BOSH CLI 가 설치 되어 있지 않을 경우 먼저 BOSH 설치 가이드 문서를 참고 하여 BOSH CLI를 설치 해야 한다.
 
 * PaaS-TA에서 제공하는 압축된 릴리즈 파일들을 다운받는다. \(PaaSTA-Deployment.zip, PaaSTA-Sample-Apps.zip, PaaSTA-Services.zip\)
 * 다운로드 위치
@@ -64,69 +63,69 @@
 * 업로드 되어 있는 릴리즈 목록을 확인한다.
 
 > $ bosh releases  
->    
->  RSA 1024 bit CA certificates are loaded due to old openssl compatibility  
->  Acting as user 'admin' on 'bosh'  
->    
->  +--------------------------------------+-----------+-------------+  
->  \| Name \| Versions \| Commit Hash \|  
->  +--------------------------------------+-----------+-------------+  
->  \| cf \| 247 _\| af4efe9f+ \|_  
->  _\| cflinuxfs2-rootfs \| 1.40.0_ \| 19fe09f4+ \|  
->  \| diego \| 1.1.0 _\| 2298c8d4 \|_  
->  _\| empty-release \| 1+dev.1_ \| 00000000 \|  
->  \| etcd \| 86 _\| 2dfbef00+ \|_  
->  _\| garden-runc \| 1.0.3_ \| c6c4c73c \|  
->  \| paasta-cubrid \| 2.0 _\| 85e3f01e+ \|_  
->  _\| paasta-eclipse-che \| 2.0_ \| 00000000 \|  
->  \| paasta-glusterfs \| 2.0 _\| 85e3f01e+ \|_  
->  _\| paasta-portal-object-storage-release \| 0+dev.1_ \| 00000000 \|  
->  \| paasta-redis \| 2.0 \| 2d766084+ \|  
->  \| swift-test-2 \| 0+dev.1 _\| 00000000 \|_  
->  _+--------------------------------------+-----------+-------------+_  
->  _\(_\) Currently deployed  
->  \(+\) Uncommitted changes  
->    
->  Releases total: 12  
->  Mysql 서비스 릴리즈가 업로드 되어 있지 않은 것을 확인
+>   
+> RSA 1024 bit CA certificates are loaded due to old openssl compatibility  
+> Acting as user 'admin' on 'bosh'  
+>   
+> +--------------------------------------+-----------+-------------+  
+> \| Name \| Versions \| Commit Hash \|  
+> +--------------------------------------+-----------+-------------+  
+> \| cf \| 247 _\| af4efe9f+ \|_  
+> _\| cflinuxfs2-rootfs \| 1.40.0_ \| 19fe09f4+ \|  
+> \| diego \| 1.1.0 _\| 2298c8d4 \|_  
+> _\| empty-release \| 1+dev.1_ \| 00000000 \|  
+> \| etcd \| 86 _\| 2dfbef00+ \|_  
+> _\| garden-runc \| 1.0.3_ \| c6c4c73c \|  
+> \| paasta-cubrid \| 2.0 _\| 85e3f01e+ \|_  
+> _\| paasta-eclipse-che \| 2.0_ \| 00000000 \|  
+> \| paasta-glusterfs \| 2.0 _\| 85e3f01e+ \|_  
+> _\| paasta-portal-object-storage-release \| 0+dev.1_ \| 00000000 \|  
+> \| paasta-redis \| 2.0 \| 2d766084+ \|  
+> \| swift-test-2 \| 0+dev.1 _\| 00000000 \|_  
+> _+--------------------------------------+-----------+-------------+_  
+> _\(_\) Currently deployed  
+> \(+\) Uncommitted changes  
+>   
+> Releases total: 12  
+> Mysql 서비스 릴리즈가 업로드 되어 있지 않은 것을 확인
 
 * MySQL 서비스 릴리즈 파일을 업로드한다.
 
-> $ bosh upload release   
->  ※ 본 샘플은 직접 릴리즈 파일을 생성하도록 안내하고 있으므로 'bosh upload release'만 입력한다. 릴리즈 파일을 직접 생성하지 않고 다운로드 받거나 릴리즈 파일 다운로드 URL이 존재하는 경우는 파일 경로 또는 다운로드 URL을 아래와 같이 입력한다.  
->  $ bosh upload release {서비스 릴리즈 파일 PATH 또는 URL}
+> $ bosh upload release  
+> ※ 본 샘플은 직접 릴리즈 파일을 생성하도록 안내하고 있으므로 'bosh upload release'만 입력한다. 릴리즈 파일을 직접 생성하지 않고 다운로드 받거나 릴리즈 파일 다운로드 URL이 존재하는 경우는 파일 경로 또는 다운로드 URL을 아래와 같이 입력한다.  
+> $ bosh upload release {서비스 릴리즈 파일 PATH 또는 URL}
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/mysql/update_mysql_vsphere_41.png) ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/mysql/update_mysql_vsphere_42.png) ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/mysql/update_mysql_vsphere_43.png) ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/mysql/update_mysql_vsphere_44.png) ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/mysql/update_mysql_vsphere_45.png)
 
 * 업로드 된 MySQL 릴리즈를 확인한다.
 
 > $ bosh releases  
->  RSA 1024 bit CA certificates are loaded due to old openssl compatibility  
->  Acting as user 'admin' on 'bosh'  
->    
->  +--------------------------------------+-----------+-------------+  
->  \| Name \| Versions \| Commit Hash \|  
->  +--------------------------------------+-----------+-------------+  
->  \| cf \| 247 _\| af4efe9f+ \|_  
->  _\| cflinuxfs2-rootfs \| 1.40.0_ \| 19fe09f4+ \|  
->  \| diego \| 1.1.0 _\| 2298c8d4 \|_  
->  _\| empty-release \| 1+dev.1_ \| 00000000 \|  
->  \| etcd \| 86 _\| 2dfbef00+ \|_  
->  _\| garden-runc \| 1.0.3_ \| c6c4c73c \|  
->  \| paasta-cubrid \| 2.0 _\| 85e3f01e+ \|_  
->  _\| paasta-eclipse-che \| 2.0_ \| 00000000 \|  
->  \| paasta-glusterfs \| 2.0 _\| 85e3f01e+ \|_  
->  _\| paasta-mysql \| 2.0_ \| 85e3f01e+ \|  
->  \| paasta-portal-object-storage-release \| 0+dev.1 _\| 00000000 \|_  
->  _\| paasta-redis \| 2.0 \| 2d766084+ \|_  
->  _\| swift-test-2 \| 0+dev.1_ \| 00000000 \|  
->  +--------------------------------------+-----------+-------------+  
->  \(\*\) Currently deployed  
->  \(+\) Uncommitted changes  
->    
->  Releases total: 13  
->    
->  Mysql 서비스 릴리즈가 업로드 되어 있는 것을 확인
+> RSA 1024 bit CA certificates are loaded due to old openssl compatibility  
+> Acting as user 'admin' on 'bosh'  
+>   
+> +--------------------------------------+-----------+-------------+  
+> \| Name \| Versions \| Commit Hash \|  
+> +--------------------------------------+-----------+-------------+  
+> \| cf \| 247 _\| af4efe9f+ \|_  
+> _\| cflinuxfs2-rootfs \| 1.40.0_ \| 19fe09f4+ \|  
+> \| diego \| 1.1.0 _\| 2298c8d4 \|_  
+> _\| empty-release \| 1+dev.1_ \| 00000000 \|  
+> \| etcd \| 86 _\| 2dfbef00+ \|_  
+> _\| garden-runc \| 1.0.3_ \| c6c4c73c \|  
+> \| paasta-cubrid \| 2.0 _\| 85e3f01e+ \|_  
+> _\| paasta-eclipse-che \| 2.0_ \| 00000000 \|  
+> \| paasta-glusterfs \| 2.0 _\| 85e3f01e+ \|_  
+> _\| paasta-mysql \| 2.0_ \| 85e3f01e+ \|  
+> \| paasta-portal-object-storage-release \| 0+dev.1 _\| 00000000 \|_  
+> _\| paasta-redis \| 2.0 \| 2d766084+ \|_  
+> _\| swift-test-2 \| 0+dev.1_ \| 00000000 \|  
+> +--------------------------------------+-----------+-------------+  
+> \(\*\) Currently deployed  
+> \(+\) Uncommitted changes  
+>   
+> Releases total: 13  
+>   
+> Mysql 서비스 릴리즈가 업로드 되어 있는 것을 확인
 
 ### 2.3. MySQL 서비스 Deployment 파일 수정 및 배포
 
@@ -134,20 +133,18 @@ BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한
 
 * PaaSTA-Deployment.zip 파일 압축을 풀고 폴더안에 있는 IaaS별 MySQL Deployment 파일을 복사한다.  
 
+예\) vsphere 일 경우 paasta\_mysql\_vsphere\_2.0.yml를 복사
 
-  예\) vsphere 일 경우 paasta\_mysql\_vsphere\_2.0.yml를 복사  
-
-
-  다운로드 받은 Deployment Yml 파일을 확인한다.
+다운로드 받은 Deployment Yml 파일을 확인한다.
 
 > $ ls –all  
->    
->  total 851588  
->  drwxrwxr-x 5 inception inception 4096 Jan 9 10:18 .  
->  drwxrwxr-x 11 inception inception 4096 Dec 21 09:28 ..  
->    
->  -rw-r--r-- 1 inception inception 6614 Jan 6 16:14 paasta\_cubrid\_vsphere\_2.0.yml  
->  -rw-rw-r-- 1 inception inception 6382 Jan 9 10:18 paasta\_mysql\_vsphere\_2.0.yml
+>   
+> total 851588  
+> drwxrwxr-x 5 inception inception 4096 Jan 9 10:18 .  
+> drwxrwxr-x 11 inception inception 4096 Dec 21 09:28 ..  
+>   
+> -rw-r--r-- 1 inception inception 6614 Jan 6 16:14 paasta\_cubrid\_vsphere\_2.0.yml  
+> -rw-rw-r-- 1 inception inception 6382 Jan 9 10:18 paasta\_mysql\_vsphere\_2.0.yml
 
 * Director UUID를 확인한다.
 
@@ -341,28 +338,28 @@ resource_pools:                               # 배포시 사용하는 resource 
 * MySQL 서비스팩을 배포한다.
 
 > $ bosh deploy  
->  ※ 40분 ~ 1시간 정도 소요된다. ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/mysql/update_mysql_vsphere_49.png) ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/mysql/update_mysql_vsphere_50.png)
+> ※ 40분 ~ 1시간 정도 소요된다. ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/mysql/update_mysql_vsphere_49.png) ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/mysql/update_mysql_vsphere_50.png)
 
 * 배포된 MySQL 서비스팩을 확인한다.
 
 > $ bosh vms paasta-mysql-service  
->    
->  RSA 1024 bit CA certificates are loaded due to old openssl compatibility  
->  Acting as user 'admin' on deployment 'paasta-mysql-service' on 'bosh'  
->    
->  Director task 1396  
->    
->  Task 1396 done  
->    
->  +-------------------------------------------------------------------+---------+-----+----------------+--------------+  
->  \| VM \| State \| AZ \| VM Type \| IPs \|  
->  +-------------------------------------------------------------------+---------+-----+----------------+--------------+  
->  \| mysql\_z1/0 \(00293380-ab04-4b45-8670-6a3891c30c05\) \| running \| n/a \| services-small \| 10.30.40.191 \|  
->  \| paasta-mysql-java-broker/0 \(fb9723c6-1a56-4a39-b4ef-cdf9296696f0\) \| running \| n/a \| services-small \| 10.30.40.195 \|  
->  \| proxy/0 \(481685c7-1c23-4fe6-8f84-b3049878f1b7\) \| running \| n/a \| services-small \| 10.30.40.194 \|  
->  +-------------------------------------------------------------------+---------+-----+----------------+--------------+  
->    
->  VMs total: 3
+>   
+> RSA 1024 bit CA certificates are loaded due to old openssl compatibility  
+> Acting as user 'admin' on deployment 'paasta-mysql-service' on 'bosh'  
+>   
+> Director task 1396  
+>   
+> Task 1396 done  
+>   
+> +-------------------------------------------------------------------+---------+-----+----------------+--------------+  
+> \| VM \| State \| AZ \| VM Type \| IPs \|  
+> +-------------------------------------------------------------------+---------+-----+----------------+--------------+  
+> \| mysql\_z1/0 \(00293380-ab04-4b45-8670-6a3891c30c05\) \| running \| n/a \| services-small \| 10.30.40.191 \|  
+> \| paasta-mysql-java-broker/0 \(fb9723c6-1a56-4a39-b4ef-cdf9296696f0\) \| running \| n/a \| services-small \| 10.30.40.195 \|  
+> \| proxy/0 \(481685c7-1c23-4fe6-8f84-b3049878f1b7\) \| running \| n/a \| services-small \| 10.30.40.194 \|  
+> +-------------------------------------------------------------------+---------+-----+----------------+--------------+  
+>   
+> VMs total: 3
 
 ### 2.4. MySQL 서비스 브로커 등록
 
@@ -628,7 +625,7 @@ HeidiSQL 프로그램은 무료로 사용할 수 있는 오픈소스 소프트�
 
 > ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/mysql/mysql_vsphere_4.1.13.png)
 >
-> 서버 정보는 Application에 바인드되어 있는 서버 정보를 입력한다. cf env  명령어로 이용하여 확인한다.
+> 서버 정보는 Application에 바인드되어 있는 서버 정보를 입력한다. cf env 명령어로 이용하여 확인한다.
 >
 > **예\)** $cf env hello-spring-mysql
 >

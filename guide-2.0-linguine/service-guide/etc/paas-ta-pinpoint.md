@@ -1,4 +1,4 @@
-# PaaS-TA Pinpoint 서비스팩 설치 가이드
+# Pinpoint 설치 가이드
 
 ### Table of Contents
 
@@ -493,7 +493,7 @@ networks:
 
 * cloud\_properties:
 
-    name: Internal
+  name: Internal
 
   dns:
 
@@ -525,7 +525,7 @@ networks:
 
 * cloud\_properties:
 
-    name: External
+  name: External
 
   dns:
 

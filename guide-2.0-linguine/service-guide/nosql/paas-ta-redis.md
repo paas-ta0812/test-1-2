@@ -1,4 +1,4 @@
-# PaaS-TA Redis 서비스팩 설치 가이드
+# Redis 설치 가이드
 
 ### Table of Contents
 

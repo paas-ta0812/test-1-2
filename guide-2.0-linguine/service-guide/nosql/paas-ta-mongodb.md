@@ -1,4 +1,4 @@
-# Table of Contents
+# Mongodb 설치 가이드
 
 1. [문서 개요](paas-ta-mongodb.md#1)
    * [1.1. 목적](paas-ta-mongodb.md#2)
@@ -772,7 +772,7 @@ MongoChef 프로그램은 무료로 사용할 수 있는 소프트웨어이다.
 
   ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/mongodb/mongodb_image_33.png)
 
-서버 정보는 Application에 바인드되어 있는 서버 정보를 입력한다. cf env  명령어로 이용하여 확인한다.
+서버 정보는 Application에 바인드되어 있는 서버 정보를 입력한다. cf env 명령어로 이용하여 확인한다.
 
 ```text
 $ cf env hello-spring-mongodb

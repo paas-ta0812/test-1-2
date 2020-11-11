@@ -1,4 +1,4 @@
-# PaaS-TA 가이드 문서
+# PaaS-TA 2.0 가이드 문서
 
 ## 플랫폼 설치 가이드
 
@@ -34,13 +34,13 @@
 
 ## 모니터링 설치 가이드
 
-* [PaaS-TA 모니터링](monitoring_page.md)
+* [PaaS-TA 모니터링](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/monitoring_page.md)
 
 ## 활용 가이드
 
-* [BOSH CLI\(Command Line Interface\) 사용](guide-1.0-spaghetti/Use-Guide/OpenPaaS_PaaSTA_BOSH_CLI_guide.md)
-* [CF CLI\(Command Line Interface\) 사용](guide-1.0-spaghetti/Use-Guide/OpenPaas-CLi-guide.md)
-* [Eclipse plugin 개발도구 사용](guide-1.0-spaghetti/Use-Guide/Open_PaaS_develop_guide.md)
+* [BOSH CLI\(Command Line Interface\) 사용](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Use-Guide/OpenPaaS_PaaSTA_BOSH_CLI_guide.md)
+* [CF CLI\(Command Line Interface\) 사용](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Use-Guide/OpenPaas-CLi-guide.md)
+* [Eclipse plugin 개발도구 사용](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Use-Guide/Open_PaaS_develop_guide.md)
 * [운영자 포털 가이드](use-guide/paas-ta-_v1.0-2.md)
 * [사용자 포털 가이드](use-guide/paas-ta-_v1.0.md)
 * [플랫폼 설치 자동화 사용 가이드](use-guide/paas-ta_-_-_-_-_.md)
@@ -50,20 +50,21 @@
 
 ## 개발 언어 별 어플리케이션 가이드
 
-* [Node.js](guide-1.0-spaghetti/Sample-App-Guide/OpenPaaS_PaaSTA_Application_Nodejs_develope_guide.md)
-* [PHP](guide-1.0-spaghetti/Sample-App-Guide/OpenPaaS_PaaSTA_Application_PHP_develope_guide.md)
-* [Python](guide-1.0-spaghetti/Sample-App-Guide/OpenPaaS_PaaSTA_Application_Python_develope_guide.md)
-* [Ruby](guide-1.0-spaghetti/Sample-App-Guide/OpenPaaS_PaaSTA_Application_Ruby_develope_guide.md)
-* [Java](guide-1.0-spaghetti/Sample-App-Guide/OpenPaaS_PaaSTA_Application_Java_develope_guide.md)
-* [Go](guide-1.0-spaghetti/Sample-App-Guide/OpenPaaS_PaaSTA_Application_Go_develope_guide.md)
+* [Node.js](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Sample-App-Guide/OpenPaaS_PaaSTA_Application_Nodejs_develope_guide.md)
+* [PHP](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Sample-App-Guide/OpenPaaS_PaaSTA_Application_PHP_develope_guide.md)
+* [Python](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Sample-App-Guide/OpenPaaS_PaaSTA_Application_Python_develope_guide.md)
+* [Ruby](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Sample-App-Guide/OpenPaaS_PaaSTA_Application_Ruby_develope_guide.md)
+* [Java](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Sample-App-Guide/OpenPaaS_PaaSTA_Application_Java_develope_guide.md)
+* [Go](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Sample-App-Guide/OpenPaaS_PaaSTA_Application_Go_develope_guide.md)
 
 ## 플랫폼 개발 가이드
 
-* [스템셀 개발 가이드](guide-1.0-spaghetti/Development-Guide/OpenPaaS_PaaSTA_Build_Stemcell_guide.md)
-* [서비스팩 개발 가이드](guide-1.0-spaghetti/Development-Guide/ServicePack_develope_guide.md)
-* [빌드팩 개발 가이드](guide-1.0-spaghetti/Development-Guide/Buildpack_develope_guide.md)
-* [어플리케이션 APIPlatform 도로주소 개발 가이드](guide-1.0-spaghetti/Development-Guide/Application_APIPlatform_dorojuso_devlope_guide.md)
-* [퍼블릭 API 개발 가이드](guide-1.0-spaghetti/Development-Guide/PublicAPI_devlope_guide.md)
+* [스템셀 개발 가이드](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Development-Guide/OpenPaaS_PaaSTA_Build_Stemcell_guide.md)
+* [서비스팩 개발 가이드](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Development-Guide/ServicePack_develope_guide.md)
+* [빌드팩 개발 가이드](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Development-Guide/Buildpack_develope_guide.md)
+* [어플리케이션 APIPlatform 도로주소 개발 가이드](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Development-Guide/Application_APIPlatform_dorojuso_devlope_guide.md)
+* [퍼블릭 API 개발 가이드](https://github.com/paas-ta0812/test-1-2/tree/581ff21f2c0942b5817f22d843f84cee02490039/guide-2.0-linguine/guide-1.0-spaghetti/Development-Guide/PublicAPI_devlope_guide.md)
 * [Java API 서비스 미터링 개발 가이드](development-guide/paas-ta_java_api_-_-_-_.md)
 * [Java 서비스 미터링 개발 가이드](development-guide/paas-ta_java_-_-_-_.md)
 * [Nodejs API 서비스 미터링 개발 가이드](development-guide/paas-ta_node.js_api_-_-_.md)
+

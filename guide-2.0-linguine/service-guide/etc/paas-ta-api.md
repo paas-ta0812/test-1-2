@@ -1,4 +1,4 @@
-# PaaS-TA API 플랫폼 서비스팩 설치 가이드
+# API 플랫폼 설치 가이드
 
 ### Table of Contents
 
@@ -494,26 +494,22 @@ API 플랫폼 서비스팩으로 배포한 API 매니저에는 Public IP가 할�
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_02.png)
 
-  
- \(2\) 터널링 정보를 입력한다.  
- ① Source port에 사용하지 않는 임의의 포트를 입력하고 ②번 Dynamic을 선택한 후, ③ Add 버튼을 눌러 추가한다. ④번 위치에서 D{입력한 포트}의 형태로 추가된 것을 확인한다.
+\(2\) 터널링 정보를 입력한다.  
+① Source port에 사용하지 않는 임의의 포트를 입력하고 ②번 Dynamic을 선택한 후, ③ Add 버튼을 눌러 추가한다. ④번 위치에서 D{입력한 포트}의 형태로 추가된 것을 확인한다.
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_03.png)
 
-  
- \(3\) Putty 접속 정보를 입력한다.  
- ① Session 메뉴를 클릭하여 접속정보 설정 화면으로 이동하여 ② 배포한 API 매니저와 내부망으로 연결되어 있는 머신\(설치 환경에 따라 상이함\)의 Public IP를 입력한다.
+\(3\) Putty 접속 정보를 입력한다.  
+① Session 메뉴를 클릭하여 접속정보 설정 화면으로 이동하여 ② 배포한 API 매니저와 내부망으로 연결되어 있는 머신\(설치 환경에 따라 상이함\)의 Public IP를 입력한다.
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_04.png)
 
-  
- \(4\) Putty 접속 및 로그인  
- Open 버튼을 클릭하여 해당 머신에 연결한다
+\(4\) Putty 접속 및 로그인  
+Open 버튼을 클릭하여 해당 머신에 연결한다
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_05.png)
 
-  
- 로그인 화면에서 로그인을 완료한 채로 접속을 유지해둔다.
+로그인 화면에서 로그인을 완료한 채로 접속을 유지해둔다.
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_06.png)
 
@@ -523,15 +519,13 @@ API 플랫폼 서비스팩으로 배포한 API 매니저에는 Public IP가 할�
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_07.jpeg)
 
-  
- \(2\) 설정 창을 연다.  
- ① 고급 탭- ② 네트워크 탭- ③ 설정 버튼을 차례로 클릭하여 설정 창을 연다.
+\(2\) 설정 창을 연다.  
+① 고급 탭- ② 네트워크 탭- ③ 설정 버튼을 차례로 클릭하여 설정 창을 연다.
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_08.png)
 
-  
- \(3\) 연결 설정 정보를 입력하고 저장한다.  
- ① 프록시 수동설정에 체크하고 ② 화면과 같이 설정을 입력한다. 포트는 Putty 터널링 설정에서 입력한 Source Port와 동일한 포트를 입력한다. ③ 설정을 완료하였으면 확인 버튼을 눌러 저장한다.
+\(3\) 연결 설정 정보를 입력하고 저장한다.  
+① 프록시 수동설정에 체크하고 ② 화면과 같이 설정을 입력한다. 포트는 Putty 터널링 설정에서 입력한 Source Port와 동일한 포트를 입력한다. ③ 설정을 완료하였으면 확인 버튼을 눌러 저장한다.
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_09.png)
 
@@ -574,9 +568,8 @@ API 플랫폼 서비스팩으로 배포한 API 매니저에는 Public IP가 할�
 **3. General Details 정의**
 
 ① API 생성 화면으로 이동하였다.  
- ② API 생성의 첫 단계인 Design 단계이다.  
- ③ General Details에 하단의 화면과 동일하게 다음과 같이 값을 입력한다.  
-
+② API 생성의 첫 단계인 Design 단계이다.  
+③ General Details에 하단의 화면과 동일하게 다음과 같이 값을 입력한다.
 
 ```text
 Name: Phoneverification
@@ -591,35 +584,30 @@ Version: 1.0.0
 **4. Resources 정의**
 
 ① General Details 하단에 Resources 입력란이 있다. URL Pattern에 대소문자 구분에 유의하여 CheckPhoneNumber 값을 입력하고 GET, POST, OPTIONS 메소드를 선택한다. Resource Name의 값은 URL Pattern을 입력하면 같은 값이 자동으로 입력되는데 사용자 필요에 따라 변경할 수 있다.  
- ② 입력이 완료되었다면, Add New Resource 버튼을 클릭하여 Resource를 추가한다.  
-
+② 입력이 완료되었다면, Add New Resource 버튼을 클릭하여 Resource를 추가한다.
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_14.png)
 
-  
- 리소스를 추가하면 하단의 그림처럼 추가된 Resource가 화면에 나타난다. 그 중 GET 메소드의 리소스를 클릭하여 파라미터 세부사항을 정의한다.
+리소스를 추가하면 하단의 그림처럼 추가된 Resource가 화면에 나타난다. 그 중 GET 메소드의 리소스를 클릭하여 파라미터 세부사항을 정의한다.
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_15.png)
 
-  
- 리소스를 클릭하면 파라미터 세부사항 입력란이 노출된다.  
- ① 추가하고자 하는 파라미터 명을 입력한다.  
- ② Add Parameter 버튼을 클릭하여 파라미터를 추가 한다. Prameter Name 항목에서 입력한 파라미터명을 확인할 수 있다.  
- ③ 파라미터의 세부사항을 정의하기 위해서 각각의 파라미터의 값\(값이 정의 되어있지 않다면 \[+Empty\]로 표시됨\)을 클릭하여 다음과 같이 파라미터를 정의한다.  
-
+리소스를 클릭하면 파라미터 세부사항 입력란이 노출된다.  
+① 추가하고자 하는 파라미터 명을 입력한다.  
+② Add Parameter 버튼을 클릭하여 파라미터를 추가 한다. Prameter Name 항목에서 입력한 파라미터명을 확인할 수 있다.  
+③ 파라미터의 세부사항을 정의하기 위해서 각각의 파라미터의 값\(값이 정의 되어있지 않다면 \[+Empty\]로 표시됨\)을 클릭하여 다음과 같이 파라미터를 정의한다.
 
 | Parameter Name | Description | Parameter Type | Data Type | Required |
 | :--- | :--- | :--- | :--- | :--- |
 | PhoneNumber | Give the phone number to be validated | query | string | True |
 | LicenseKey | Give the license key. If you don't have any, enter 0 | query | string | True |
 
-④ 하단의 버튼 중, 좌측의 Save버튼을 클릭하여 저장하고 가운데 Implement 버튼을 클릭하여 다음단계인 Implement 단계로 진행한다.  
-
+④ 하단의 버튼 중, 좌측의 Save버튼을 클릭하여 저장하고 가운데 Implement 버튼을 클릭하여 다음단계인 Implement 단계로 진행한다.
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_16.png)
 
- ※ Swagger 정의  
- 상단의 [\[3. General Details 정의\]](paas-ta-api.md#DefineGeneralDetails)에서 푸른색 ④번 박스로 표시된 Edit Swagger Definition 버튼을 클릭하면 Swagger 수정이 가능하다. 다음과 같이 수정하고 Save버튼을 클릭하여 Resources를 정의한다. 이 방법을 통해 상단에 기술된 [\[4. Resources 정의\]](paas-ta-api.md#DefineResources) 절차를 생략할 수 있다.
+※ Swagger 정의  
+상단의 [\[3. General Details 정의\]](paas-ta-api.md#DefineGeneralDetails)에서 푸른색 ④번 박스로 표시된 Edit Swagger Definition 버튼을 클릭하면 Swagger 수정이 가능하다. 다음과 같이 수정하고 Save버튼을 클릭하여 Resources를 정의한다. 이 방법을 통해 상단에 기술된 [\[4. Resources 정의\]](paas-ta-api.md#DefineResources) 절차를 생략할 수 있다.
 
 ```text
 apiVersion: 1.0.0
@@ -682,24 +670,21 @@ authorizations:
 **5. Endpoint 입력**
 
 ① Endpoint를 입력하고 Endpoint 설정과 보안 설정 등을 입력하는 Implement 화면이다.  
- ② Production Endpoint 입력란과 Sandbox Endpoint 입력란에 다음과 같이 Endpoint를 입력한다.  
-
+② Production Endpoint 입력란과 Sandbox Endpoint 입력란에 다음과 같이 Endpoint를 입력한다.
 
 > Production Endpoint: [http://ws.cdyne.com/phoneverify/phoneverify.asmx](http://ws.cdyne.com/phoneverify/phoneverify.asmx)  
->  Sandbox Endpoint: [http://ws.cdyne.com/phoneverify/phoneverify.asmx](http://ws.cdyne.com/phoneverify/phoneverify.asmx)
+> Sandbox Endpoint: [http://ws.cdyne.com/phoneverify/phoneverify.asmx](http://ws.cdyne.com/phoneverify/phoneverify.asmx)
 
 ③ 추가된 사항을 저장한다.  
- ④ 다음 단계인 Manage 화면으로 이동한다.  
-
+④ 다음 단계인 Manage 화면으로 이동한다.
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_17.png)
 
 **6. Tier 선택**
 
 ① API의 Tier 및 추가적인 설정을 입력하는 Manage화면이다.  
- ② Tier Availability는 해당 API 서비스의 호출 횟수를 제한하는 설정으로 PaaS-TA에서는 플랜으로 표시된다. API 매니저에 설정된 4가지 기본 Tier 중, 사용자 필요에 맞게 선택할 수 있고 API 매니저 관리자 대시보드\({API매니저 URL}:{API매니저 포트}/carbon\)에서 Tier명과 호출 횟수 제한을 변경할 수 있다. 다만, 현재는 API 서비스 브로커 설계상 API Tier는 Unlimited Tier를 선택하여야 한다. 따라서 Unlimited Tier만을 선택한다. Unlimited Tier만 선택하여 API 서비스를 배포하더라도 PaaS-TA에서는 Unlimited와 Bronze의 두 가지 플랜을 선택할 수 있다.  
- ③ Save & Publish 버튼을 클릭하여 저장하고 API를 배포한다.  
-
+② Tier Availability는 해당 API 서비스의 호출 횟수를 제한하는 설정으로 PaaS-TA에서는 플랜으로 표시된다. API 매니저에 설정된 4가지 기본 Tier 중, 사용자 필요에 맞게 선택할 수 있고 API 매니저 관리자 대시보드\({API매니저 URL}:{API매니저 포트}/carbon\)에서 Tier명과 호출 횟수 제한을 변경할 수 있다. 다만, 현재는 API 서비스 브로커 설계상 API Tier는 Unlimited Tier를 선택하여야 한다. 따라서 Unlimited Tier만을 선택한다. Unlimited Tier만 선택하여 API 서비스를 배포하더라도 PaaS-TA에서는 Unlimited와 Bronze의 두 가지 플랜을 선택할 수 있다.  
+③ Save & Publish 버튼을 클릭하여 저장하고 API를 배포한다.
 
 ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/apiplatform/apiplatform_image_18.png)
 

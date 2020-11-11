@@ -1,4 +1,4 @@
-# PaaS-TA RabbitMQ 서비스팩 설치 가이드
+# RabbitMQ 설치 가이드
 
 ### Table of Contents
 
@@ -13,19 +13,18 @@
    * [2.3. RabbitMQ 서비스 Deployment 파일 수정 및 배포](paas-ta-rabbitmq.md#9)
    * [2.4. RabbitMQ 서비스 브로커 등록](paas-ta-rabbitmq.md#10)
 3. [RabbitMQ 연동 Sample App 설명](paas-ta-rabbitmq.md#11)
+
    * [3.1. Sample App 구조](paas-ta-rabbitmq.md#12)
    * [3.2. PaaS-TA에서 서비스 신청](paas-ta-rabbitmq.md#13)
    * [3.3. Sample App에 서비스 바인드 신청 및 App 확인](paas-ta-rabbitmq.md#14)
 
- \# 1. 문서 개요  
-
+   \# 1. 문서 개요
 
 #### 1.1. 목적
 
 본 문서\(RabbitMQ서비스팩 설치 가이드\)는 전자정부표준프레임워크 기반의 PaaS-TA에서 제공되는 서비스팩인 RabbitMQ 서비스팩을 Bosh를 이용하여 설치 하는 방법과 PaaS-TA의 SaaS 형태로 제공하는 Application에서 RabbitMQ 서비스를 사용하는 방법을 기술하였다.
 
- \#\#\# 1.2. 범위 설치 범위는 RabbitMQ 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다.  
-
+\#\#\# 1.2. 범위 설치 범위는 RabbitMQ 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다.
 
 #### 1.3. 시스템 구성도
 
@@ -41,8 +40,8 @@
 
 #### 1.4. 참고자료
 
-[**http://bosh.io/docs**](http://bosh.io/docs)   
- [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
+[**http://bosh.io/docs**](http://bosh.io/docs)  
+[**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 
 ## 2. RabbitMQ 서비스팩 설치
 
@@ -647,17 +646,17 @@ applications:
 command: puma           # 배포시 명령어
 ```
 
-* --no-start 옵션으로 App을 배포한다. 
+* --no-start 옵션으로 App을 배포한다.
 
   --no-start: App 배포시 구동은 하지 않는다.
 
 > $ cf push --no-start  
->  ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/rabbitmq/rabbitmq_image_11.png)
+> ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/rabbitmq/rabbitmq_image_11.png)
 
 * 배포된 Sample App을 확인하고 로그를 수행한다.
 
 > $ cf apps  
->  ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/rabbitmq/rabbitmq_image_12.png)
+> ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/rabbitmq/rabbitmq_image_12.png)
 >
 > $ cf logs {배포된 App명} $ cf logs lab-rat ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/rabbitmq/rabbitmq_image_13.png)
 
@@ -671,9 +670,9 @@ command: puma           # 배포시 명령어
 
 * App이 정상적으로 RabbitMQ 서비스를 사용하는지 확인한다.
 
-> - curl 로 확인  
->  $ curl lab-rat.115.68.46.186.xip.io  
+> * curl 로 확인  
 >
+>   $ curl lab-rat.115.68.46.186.xip.io  
 >
->  ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/rabbitmq/rabbitmq_image_17.png) ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/rabbitmq/rabbitmq_image_18.png) ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/rabbitmq/rabbitmq_image_19.png)
+> ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/rabbitmq/rabbitmq_image_17.png) ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/rabbitmq/rabbitmq_image_18.png) ![](https://github.com/jhuhm13579/trans-test/tree/c3fa60c3f2804eba4cf4bb19f90449a85a66a625/images/paasta-service/rabbitmq/rabbitmq_image_19.png)
 
