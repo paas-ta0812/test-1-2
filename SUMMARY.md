@@ -120,5 +120,5 @@
     * [포탈 Object Storage 설치 가이드](guide-2.0-linguine/use-guide/paas-ta-object-storage.md)
     * [포탈 배포 가이드](guide-2.0-linguine/use-guide/paas-ta-portal.md)
     * [Usage Reporting API 가이드](guide-2.0-linguine/use-guide/paas-ta_usage_reporting_api_.md)
-* [테스트 가이드](undefined.md)
+* [테스트 가이드](test_guide.md)
 
